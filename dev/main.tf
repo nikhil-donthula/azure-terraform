@@ -29,7 +29,19 @@ module "compute" {
   tags           = var.tags
   vm_name        = var.vm_name
   private_subnet = module.network.private_subnet
+  public_subnet  = module.network.public_subnet
+}
 
+module "frontend-compute" {
+  source         = "../modules/compute/"
+  resource_group = module.common.resource_group
+  location       = var.location
+  environment    = var.environment
+  team           = var.team
+  tags           = var.tags
+  vm_name        = var.frontend_vm_name
+  private_subnet = module.network.private_subnet
+  public_subnet  = module.network.public_subnet
 }
 
 module "storage" {

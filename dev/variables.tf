@@ -42,3 +42,8 @@ variable "vm_name" {
   type        = string
   description = "vm name"
 }
+
+variable "frontend_vm_name" {
+  type        = string
+  description = "vm name"
+} 
